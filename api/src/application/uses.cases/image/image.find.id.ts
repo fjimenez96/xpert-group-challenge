@@ -4,8 +4,8 @@ import { ImageRepository } from "../../../domain/repositories/image.repository";
 export class ImageFindIdUseCase {
   private readonly _imageRepository: ImageRepository;
 
-  constructor(ImageRepository: ImageRepository) {
-    this._imageRepository = ImageRepository;
+  constructor(imageRepository: ImageRepository) {
+    this._imageRepository = imageRepository;
   }
 
   async run(id: string): Promise<ImageEntity | null> {
