@@ -18,4 +18,8 @@ export class BreedService {
   getBreedById(id: string): Observable<any> {
     return this.http.get(`${apiUrl}/api/breeds/${id}`);
   }
+
+  searchBreed(name : string,limit: number = 10, page: number = 0): Observable<any> {
+    return this.http.get(`${apiUrl}/api/breeds/search?name=${name}&limit=${limit}&page=${page}`);
+  }
 }
