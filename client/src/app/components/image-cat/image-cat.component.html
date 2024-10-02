@@ -1,15 +1,63 @@
 <div class="container-main">
   <header>
-    <h3>Buscar imagen de gato por raza</h3>
+    <h3>Search cat image by breed</h3>
   </header>
   <div class="row">
     <div class="col-md-10 col-xs-10">
       <div class="form-group">
         <label for="breed">Breed</label>
-        <select class="form-select form-select-sm" id="breed" name="breed">
-          <option>Raza 1</option>
+        <select
+          class="form-select form-select-sm"
+          id="breed"
+          name="breed"
+          (change)="onBreedChange($event)"
+        >
+          @for (breed of breeds; track $index) {
+          <option [value]="breed.id">{{ breed.name }}</option>
+          }
         </select>
       </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-10 col-xs-10">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img [src]="selectedImage?.url" class="d-block w-100" alt="..." />
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-10 col-xs-10">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Origin</th>
+            <th scope="col">Temperament</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (selectedBreed) {
+          <tr>
+            <td>{{ selectedBreed.name }}</td>
+            <td>{{ selectedBreed.description }}</td>
+            <td>{{ selectedBreed.origin }}</td>
+            <td>{{ selectedBreed.temperament }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
