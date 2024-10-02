@@ -1,7 +1,7 @@
 import { UserRepository } from "../../../domain/repositories/user.repository";
 import { UserEntity } from "../../../domain/entities/user.entity";
 import { UserAlreadyExistsException } from "../../../domain/exceptions/user/user.already.exists.exception";
-import { UserDto } from "../../../domain/dto/user.dto";
+import { UserDTO } from "../../../domain/dto/user.dto";
 import { BcryptUtils } from "../../../config/bcrypt.utils";
 
 export class UserRegisterUseCase {
@@ -11,7 +11,7 @@ export class UserRegisterUseCase {
     this._userRepository = userRepository;
   }
 
-  async run(userEntity: UserEntity): Promise<UserDto> {
+  async run(userEntity: UserEntity): Promise<UserDTO> {
     const exists = await this._userRepository.findByUserName(
       userEntity.userName
     );
@@ -24,6 +24,6 @@ export class UserRegisterUseCase {
 
     const result = await this._userRepository.save(userEntity);
 
-    return new UserDto(result);
+    return new UserDTO(result);
   }
 }
