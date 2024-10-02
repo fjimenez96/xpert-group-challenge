@@ -21,4 +21,8 @@ export class UserService {
   register(user: any): Observable<any> {
     return this.http.post(`${apiUrl}/api/auth/register`, user);
   }
+
+  validateToken(token: string): Observable<any> {
+    return this.http.get(`${apiUrl}/api/auth/validate?token${token}`);
+  }
 }
