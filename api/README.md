@@ -1,6 +1,6 @@
-# Microservice kitchen
+# BackEnd
 
-This microservice is in charge of handling requests, assignment and delivery of dishes, with the condition that to deliver the dish you must wait for the delivery of the ingredients from the food warehouse.
+This component is in charge of handling the query to breed and images of cats.
 
 - Node version: `v20.16.0`
 - Npm version: `10.8.1`
