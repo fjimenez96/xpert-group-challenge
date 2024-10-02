@@ -3,6 +3,8 @@ import { MongodbUserRepositoryImpl } from "../../infraestructure/implementations
 import { UserRegisterUseCase } from "../../application/uses.cases/user/user.register";
 import { UserLoginUseCase } from "../../application/uses.cases/user/user.login";
 import { UserController } from "../controllers/user.controller";
+import { TokenStatusController } from "../controllers/token.status.controller";
+import { UserValidateTokenUseCase } from "../../application/uses.cases/user/user.validate.token";
 
 export class UserRoutes {
   static get routes(): Router {
@@ -20,6 +22,10 @@ export class UserRoutes {
 
     router.post("/register", registerUser);
     router.post("/login", login);
+    router.get(
+      "/validate/token",
+      new TokenStatusController(new UserValidateTokenUseCase()).validate
+    );
 
     return router;
   }
