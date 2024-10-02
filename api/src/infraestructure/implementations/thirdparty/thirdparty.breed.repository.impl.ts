@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
-import { BreedEntity } from "../../domain/entities/breed.entity";
-import { BreedRepository } from "../../domain/repositories/breed.repository";
+import { BreedEntity } from "../../../domain/entities/breed.entity";
+import { BreedRepository } from "../../../domain/repositories/breed.repository";
 
 export class ThirdpartyBreedRepositoryImpl implements BreedRepository {
   private _baseUrl: string;

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ThirdpartyBreedRepositoryImpl } from "../../infraestructure/implementations/thirdparty.breed.repository.impl";
+import { ThirdpartyBreedRepositoryImpl } from "../../infraestructure/implementations/thirdparty/thirdparty.breed.repository.impl";
 import { BreedFindAllUseCase } from "../../application/uses.cases/breed/breed.find.all";
 import { BreedFindIdUseCase } from "../../application/uses.cases/breed/breed.find.id";
 import { BreedFindSearchUseCase } from "../../application/uses.cases/breed/breed.find.search";
