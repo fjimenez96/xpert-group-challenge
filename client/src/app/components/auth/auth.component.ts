@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
   ReactiveFormsModule,
-  Validators,
   FormsModule
 } from '@angular/forms';
 import { UserService } from '../../services/user.service';
@@ -23,6 +20,7 @@ export class AuthComponent {
   };
   isLoginSuccessful = false;
   isLoginFailed = false;
+  errorMessage = '';
 
   constructor(private userService: UserService,private storageService: StorageService){
     
@@ -37,7 +35,8 @@ export class AuthComponent {
         this.storageService.saveUser(data);
         window.location.reload();
       },
-      error: () => {
+      error: (err) => {
+        this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
     });

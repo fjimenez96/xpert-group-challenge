@@ -7,6 +7,17 @@
             <div class="card-body card-body-center">
                 <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                     <div class="form-group">
+                        <label for="userName">Name</label>
+                        <input type="text" class="form-control" name="name" [(ngModel)]="form.name"
+                            #name="ngModel" required />
+                        @if (name.errors && name.errors['required'] && f.submitted) {
+                        <div class="alert alert-danger" role="alert">
+                            Name is required!
+                        </div>
+                        }
+
+                    </div>
+                    <div class="form-group">
                         <label for="userName">User Name</label>
                         <input type="text" class="form-control" name="userName" [(ngModel)]="form.userName"
                             #userName="ngModel" required />
@@ -29,15 +40,15 @@
 
                     </div>
                     <div class="form-group mt-3">
-                        <button class="btn btn-primary btn-block">Login</button>
+                        <button class="btn btn-primary btn-block">Register</button>
                     </div>
                 </form>
-                @if (isLoginSuccessful) {
-                    <div class="alert alert-success">Login is successful!</div>
+                @if (isSuccessful) {
+                    <div class="alert alert-success">Register is successful!</div>
                 }
 
-                @if (f.submitted && isLoginFailed) {
-                    <div class="alert alert-danger">Login Fail!: {{ errorMessage }}</div>
+                @if (f.submitted && isFailed) {
+                    <div class="alert alert-danger">Register Fail!: {{ errorMessage }}</div>
                 }
                 
             </div>

@@ -17,4 +17,8 @@ export class UserService {
       password,
     });
   }
+
+  register(user: any): Observable<any> {
+    return this.http.post(`${apiUrl}/api/auth/register`, user);
+  }
 }

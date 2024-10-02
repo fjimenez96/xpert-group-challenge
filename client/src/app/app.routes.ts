@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ImageCatComponent } from './components/image-cat/image-cat.component';
 import { SearchBreedComponent } from './components/search-breed/search-breed.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { UserRegisterComponent } from './components/user-register/user-register.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,5 +22,9 @@ export const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,
+  },
+  {
+    path: 'register',
+    component: UserRegisterComponent,
   },
 ];
